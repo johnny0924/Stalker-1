@@ -21,7 +21,7 @@ green='\033[01;32m'
 norm='\033[00m'
 
 #ver=v5.1.1
-pass="st@lk3r"
+pass="1989march10"
 source="http://linuxhelps.net/configs"
 
 # Download and Install the Latest Updates for the OS
@@ -40,7 +40,7 @@ sleep 1
 echo "Europe/Sofia" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
-# Install MySQL Server in a Non-Interactive mode. Default root password will be "st@lk3r"
+# Install MySQL Server in a Non-Interactive mode. Default root password will be "1989march10"
 echo "mysql-server mysql-server/root_password password $pass" | sudo debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $pass" | sudo debconf-set-selections
 
@@ -51,9 +51,9 @@ mysql -uroot -p$pass -e 'USE mysql; UPDATE `user` SET `Host`="%" WHERE `User`="r
 service mysql restart
 
 cd /var/www/html
-wget http://linuxhelps.net/files/stalker_portal-5.1.1.zip
-unzip stalker_portal-5.1.1.zip
-mv stalker_portal* stalker_portal
+wget http://download.middleware-stalker.com/downloads/498dcf76433121758c8103e118229f3f/stalker_portal-5.2.0.zip
+unzip stalker_portal-5.2.0.zip
+mv infomirgroup-stalker_portal-9e60f9025ab6/ stalker_portal
 rm -rf *.zip
 
 mysql -uroot -p$pass -e "create database stalker_db"
